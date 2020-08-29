@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h3>Current Quiz Information Is</h3>
+Date And Time: {{quizinfo.0.1}}<br>
+Duration: {{quizinfo.0.2}} min<br>
+Quiz Name: {{quizinfo.0.3}}<br>
+<h4 class="my-4">If You Want to update above details fill the given form</h4>
+<form method="get"action="{% url 'Settime' %}">
+{% csrf_token %}
+<label for="date">Date</label><br>
+<input type="date" id="date" name="date"required><br>
+
+<label for="time">time</label><br>
+<input type="time" id="time" name="time"required><br>
+
+<label for="duration">Duration(In Minutes)</label><br>
+<input type="number" min=1 id="duration" name="duration" required><br>
+
+<label for="name">Quiz Name</label><br>
+<input type="text"  id="name" name="name" required><br>
+
+<button type="submit" class="btn btn-primary my-4">Set Time</button>
+</form>
+</div>
+{% endblock body %}

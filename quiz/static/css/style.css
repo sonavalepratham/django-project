@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+div.main{
+    background-color: #f2f2f3;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav{
+    background: white;
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    box-shadow: 0px 1px 5px #aaaaaa;
+}
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 58px;
+    padding: 0 40px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 66px;
+    margin: 0 5px;
+
+}
+nav ul li a{
+    color: black;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 4px;
+    
+    /* background-color:#0082e6 ; */
+    /* text-transform: uppercase; */
+}
+nav ul li a:hover{
+background: #1b9bff;
+transition: 0.5s;
+text-decoration: none;
+}
+.checkbtn{
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display:none;
+    text-decoration: none;
+}
+#check{
+    display: none;
+}
+@media (max-width: 952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+        text-decoration: none;
+    }
+}
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height:100vh;
+        background: #6e7e8d;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition:.5s;
+    }
+    nav ul li{
+        display:block;
+        margin: 50px 0;
+        line-height:20px ;   
+    }
+    nav ul li a{
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+    nav ul li a:hover{
+        background: none;
+        color: #1800f5;
+        text-decoration: none;
+    }
+    #check:checked ~ul{
+        left: 0;
+    }
+}
+.maincontainer{
+    padding-top: 65px;
+}
+/* carousel */
+#slider{
+    
+    width: 100%;
+}
+#slider a:hover{
+    color: none !important;
+}
+@font-face{
+    font-family: 'elesa';
+    src: url(fonts/elesa.ttf);
+}

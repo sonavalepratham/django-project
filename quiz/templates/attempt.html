@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block nav %}
+<p id="countdown" style="float:right;"></p>
+{% endblock nav %}
+{% block body %}
+<div class="container">
+<form method="post" action="{% url 'Submit' %}" name="attemptform"">
+{% csrf_token %}
+{% for q in qna  %}
+<h3>{{q.1}}</h3>
+
+<input type="radio" id="{{q.2}}" name="{{q.0}}" value="1">
+<label for="{{q.2}}">{{q.2}}</label><br>
+
+<input type="radio" id="{{q.3}}" name="{{q.0}}" value="2">
+<label for="{{q.3}}">{{q.3}}</label><br>
+
+<input type="radio" id="{{q.4}}" name="{{q.0}}" value="3">
+<label for="{{q.4}}">{{q.4}}</label><br>
+
+<input type="radio" id="{{q.5}}" name="{{q.0}}" value="4">
+<label for="{{q.5}}">{{q.5}}</label><br>
+<hr>
+{% endfor %} 
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("{{datetime}}").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text
+   
+  if (distance < 0) {
+    clearInterval(x);
+    document.attemptform.submit();
+  }
+}, 1000);
+</script>
+{% endblock body %}

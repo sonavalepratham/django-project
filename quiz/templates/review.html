@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h2>Your Score: {{mark.0.1}}/{{questions}}<h2>
+{% for q in qna  %}
+<h3>{{q.1}}</h3>
+1. {{q.2}}<br>
+2. {{q.3}}<br>
+3. {{q.4}}<br>
+4. {{q.5}}<br>
+
+<p style="color:green;">Correct Option: {{q.6}}<br></p>
+<hr>
+{% endfor %} 
+</div>
+{% endblock body %}
